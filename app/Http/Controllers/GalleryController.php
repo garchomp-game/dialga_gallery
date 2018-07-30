@@ -43,7 +43,7 @@ class GalleryController extends Controller
         $gallery = new Gallery();
         $gallery->title = $request->title;
         $gallery->description = $request->description;
-        if ($gallery->path) {
+        if ($request->image) {
             $gallery->image = $request->image;
             $path = $request->file('image')->store(
                 'public/GalleryImage'
