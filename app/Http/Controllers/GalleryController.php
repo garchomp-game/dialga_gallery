@@ -7,6 +7,10 @@ use App\Gallery;
 
 class GalleryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['create', 'store']]);
+    }
     /**
     * Display a listing of the resource.
     *
