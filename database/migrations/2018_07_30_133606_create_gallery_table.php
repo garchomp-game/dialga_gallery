@@ -17,8 +17,8 @@ class CreateGalleryTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->string('image');
-            $table->string('path');
+            $table->string('image')->nullable();
+            $table->string('path')->nullable();
             $table->timestamps();
         });
     }

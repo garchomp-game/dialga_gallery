@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gallery;
+use App\Http\Requests\GalleryRequest;
 
 class GalleryController extends Controller
 {
@@ -37,16 +38,18 @@ class GalleryController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Request $request)
+    public function store(GalleryRequest $request)
     {
         $gallery = new Gallery();
         $gallery->title = $request->title;
         $gallery->description = $request->description;
-        $gallery->image = $request->image;
-        $path = $request->file('image')->store(
-            'public/GalleryImage'
-        );
-        $gallery->path = ltrim($path, 'public/');
+        if ($gallery->image) {
+            $gallery->image = $request->image;
+            $path = $request->file('image')->store(
+                'public/GalleryImage'
+            );
+            $gallery->path = ltrim($path, 'public/');
+        }
         $gallery->save();
         return redirect()->route('root_path');
     }
