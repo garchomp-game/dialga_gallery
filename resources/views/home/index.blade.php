@@ -10,7 +10,7 @@
                 <div class="panel-heading">ダッシュボード</div>
                 <div class="panel-body">
                     @forelse ($gallery as $key => $value)
-                        @isset ($value->image)
+                        @isset ($value->path)
                             <img style="width:100%; height:70%;" src="{{url('storage/'.$value->path)}}">
                         @endisset
                         <h2>{{$value->title}}</h2>
