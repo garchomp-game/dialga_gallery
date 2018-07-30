@@ -15,6 +15,7 @@
                         @endisset
                         <h2>{{$value->title}}</h2>
                         <p>{{$value->description}}</p>
+                        <hr style="border:1px solid black">
                     @empty
                         <h2>まだ何も投稿されていません</h2>
                     @endforelse
