@@ -4,9 +4,7 @@
     <div class="container">
         <div class="row">
             @auth
-                @if (auth()->user()->id == 1)
-                    <a href="{{route('gallery.create')}}" class="btn btn-success" style="margin-bottom:15px;">新規投稿する</a>
-                @endif
+                <a href="{{route('gallery.create')}}" class="btn btn-success" style="margin-bottom:15px;">新規投稿する</a>
             @endauth
             <div class="panel panel-default">
                 <div class="panel-heading">ダッシュボード</div>
